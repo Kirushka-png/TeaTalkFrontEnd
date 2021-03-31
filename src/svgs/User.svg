@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 68 118" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <g transform="matrix(1, 0, 0, 1, -178.696167, -87.310829)">
+    <path style="fill: rgb(92, 178, 253);" transform="matrix(0.007388, 0.582072, -0.293896, 0, 263.273651, 52.628223)" d="M 260 286 A 110.005 110.005 0 1 1 259 65.995 L 259 176 Z" bx:shape="pie 259 176 0 110.005 179.479 360 1@35e5dfb0"/>
+    <circle style="fill: rgb(92, 178, 253);" cx="213.038" cy="121.007" r="32.803"/>
+  </g>
+</svg>
