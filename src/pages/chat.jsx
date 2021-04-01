@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 
 import Login from '../codebase/Code.js'
 import ChatCode from "../codebase/Chat.js"
+import Addusersvg from "../svgs/adduser.svg";
 
 function logKey(e){
   
@@ -47,8 +48,15 @@ class Chat extends Component{
               <div className='chatmain'>
                 <div className='roomspace'>
                   <div className='roomhead'>
-                  <button className='send add' onClick ={() => {OpenModal("Group")}}>Add Group</button>
-                  <button className='send add'  onClick ={() => {OpenModal("PM")}}>Add PM</button>
+                    <div className='imghere'>
+                   <img id='picture' className="pic" src='https://prd-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/styles/full_width/public/thumbnails/image/placeholder-profile_3_5.png'>
+                   </img>
+                   </div>
+                   <div className='names'>
+                      <div className='username' id="username">Egor</div>
+                      <div className='userid' id ='userid'>@egor</div>                  
+                   </div>
+                   
                   </div>
                   <div className='chats'>
                     <ul className='rooms' id='rooms'>
@@ -57,7 +65,8 @@ class Chat extends Component{
         
                   </div>
                   <div className="RoomFooter">
-
+                  
+                    <img src={Addusersvg} alt="adduser" width="70%" />
                   </div>
                 </div>
                 <div className='chatspace'>
@@ -83,7 +92,13 @@ class Chat extends Component{
 
                 <div className='userspace'>
                   <div className='banner'></div>
-                  <div className='userlist'></div>
+                  <div className='userlist'>
+                      <ul className="dudes" id="dudesid">
+
+
+                      </ul>
+
+                  </div>
                   <div className='userfooter'></div>
 
                 </div>

@@ -122,6 +122,48 @@ if(document.location.toString().includes("chat")){
       
         //alert(msg.data.toString());
     });
+    msgEvent.addEventListener("getusers",msg =>{
+      var json = JSON.parse(msg.data);
+      const personObjectEntries = Object.entries(json);
+      const personObjectEntriesNumberKeys = personObjectEntries.map(person => {
+    // person[0] = parseInt(person[0]);
+      return person;
+      });
+      
+      var users = document.getElementById("dudesid");
+      if(users != null){
+        users.innerHTML = '';
+      }
+      const personsMap = new Map(personObjectEntriesNumberKeys);
+      for (const key of personsMap.keys()) {
+        var val = personsMap.get(key);
+        var type = key.split(" ")[1];
+        var userid = key.split(" ")[0];
+        if(users !=null){
+          var newElement = document.createElement("li");
+          newElement.id = userid;
+          //newElement.onclick = ChatCode.GetMsgs;
+          newElement.className = "room";
+          
+          var ChatName = document.createElement("div");
+          ChatName.className = "roomname";
+          
+          if(key.includes("*")){
+            ChatName.className = "pmname";
+            var nam = Cookies.getCookie("name");
+            val = val.replace(nam, "").replace("*","");
+            
+            
+          } 
+          ChatName.innerHTML = val;
+          newElement.append(ChatName);
+          users.append(newElement);  
+  
+        }
+        }
+      
+      
+    });
     
     
 }
