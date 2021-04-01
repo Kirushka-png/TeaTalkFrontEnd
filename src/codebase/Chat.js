@@ -178,12 +178,20 @@ class ChatCode extends Component {
   static AddNewUserInRoom(){
     var senderMsg = document.getElementsByName("Send");
       if(senderMsg.id != undefined){
-        
-        var p = prompt("Введите имя пользователя, которого хотите добавить");
-        var request = new XMLHttpRequest();
-        request.open("POST", Cookies.getCookie("Ip") + "/addnewclientinroom");
-        var json = JSON.stringify(senderMsg.id.replace("*","")+":" + Cookies.getCookie("name") + ":" + p);
-        request.send(json);
+        let username = document.getElementById("usernameToPM");
+        var p = username.value;
+        if(p!= "") {
+          var request = new XMLHttpRequest();
+          request.open("POST", Cookies.getCookie("Ip") + "/addnewclientinroom");
+          var json = JSON.stringify(senderMsg.id.replace("*","")+":" + Cookies.getCookie("name") + ":" + p);
+          request.send(json);
+          username.value = "";
+          document.location= "#close";
+          this.ModalStatus = 0;
+        }
+        else{
+          alert("Введите никнейм");
+        }
       }
       else{
         alert("Выберите беседу");
@@ -260,7 +268,7 @@ class ChatCode extends Component {
     }
 
   }
-  static RemoveUser(){
+  static LeaveRoom(){
     var request = new XMLHttpRequest();
     var senderMsg = document.getElementsByName("Send");
     

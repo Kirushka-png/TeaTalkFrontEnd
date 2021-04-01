@@ -14,7 +14,7 @@
   
     margin: auto;
     margin-top: 1.5%;
-    
+    min-width: 1000px;
     width: 80% ;
     min-height: 80vh ;
     display: flex;
@@ -45,8 +45,6 @@
     border-right-width: 0;
     border-left-width: 0;
     border-radius: 5px;
-    
-    padding-top: 2%;
     width: 100%;
     height: 9.5%;
     
@@ -76,9 +74,9 @@
 }
 .headcontent{
     border-radius: 5%;
-   
+    
     background-color: rgba(17, 30, 44, 0.664);
-    height: 90%;
+    height: 100%;
     width: 100%;
 }
 .username{
@@ -92,9 +90,12 @@
 .userid{
     margin-left: 40%;
     color:rgb(50, 121, 184) ;
+    font-size: 14px;
 }
 
 .RoomFooter{
+    z-index: 9999;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -111,12 +112,20 @@
 
 }
 .guyssvg{
+    z-index: 1000;
     display: flex;
     justify-content: center;
     background-color: rgba(17, 30, 44, 0.664);
     border-radius: 5%;
     height: 100%;
 
+}
+.guyssvg:hover{
+    cursor: pointer;
+    background-color:rgba(17, 30, 44, 0.964)
+}
+.guyssvg:active{
+    background-color:rgba(22, 37, 54, 0.864)
 }
 .rooms{
     display: flex;
@@ -197,8 +206,8 @@
 .chatspace{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    margin: 1%;
+    justify-content: space-between;
+    margin: 1.5%;
     margin-left: 0;
     margin-right: 0;
     border-radius: 5px;
@@ -211,10 +220,12 @@
 }
 
 .chathead{
+    background-color: rgba(22, 34, 48, 0);
     display: flex;
-    
-  flex-direction: row;
-  justify-content: space-between;
+    position: relative;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
     margin-left: 2%;
     border-width: 2px;
     border-top-width: 0;
@@ -225,7 +236,7 @@
     border-style: solid;
     border-color: rgba(103, 164, 234, 0.767);
     width: 98%;
-    height: 8.5%;
+    height: 9.5%;
 }
 .chatitself{
     border-width: 1px;
@@ -313,6 +324,26 @@
     
     height: 80%;
 }
+.settingsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 8%;
+
+}
+.settings{
+    z-index: 9999;
+    height: 40px;
+    width:40px;
+    background-image: url(/src/svgs/SettingsCog.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.settings:hover{
+    cursor: pointer;
+
+}
 .banner{
     display: flex;
     flex-direction: row;
@@ -322,11 +353,10 @@
     border-top-width: 0;
     border-right-width: 0;
     border-left-width: 0;
-    margin: 1%;
     margin-bottom: 0;
     border-radius: 5px;
     width: 100%;
-    height: 10.5%;
+    height: 9.8%;
 }
 .userfooter{
     width: 100%;
@@ -355,6 +385,125 @@ ul {
     font-size: 2vh;
     color:rgb(92, 178, 253) ;
 }
+.userInfoPicture{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin-right: 5%;
+}
+.userInfoCont{
+    margin: 2% 0 3% 0;
+    display: flex;
+    align-items: center;
+}
+.modalDialogUserInfo {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(92, 178, 253) ;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    display: none;
+    pointer-events: none;
+}
+.modalDialogUserInfo:target {
+    display: block;
+    pointer-events: auto;
+}
+.modalDialogUserInfo > div {
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: rgb(10, 19, 38);
+}
+.modalBodyUserInfo{
+    display: flex;
+    flex-direction: column;
+    
+}
+.closeModalUserInfo {	
+    cursor: default;
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+.closeModalUserInfo:hover { background: #00d9ff; }
+.closeModalUserInfo:active { background: #008cff; }
+.modalDialogAddUser {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(92, 178, 253) ;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    display: none;
+    pointer-events: none;
+}
+.modalDialogAddUser:target {
+    display: block;
+    pointer-events: auto;
+}
+.modalDialogAddUser > div {
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: rgb(10, 19, 38);
+}
+.modalBodyAddUser{
+    display: flex;
+    flex-direction: column;
+    
+}
+.closeModalAddUser {	
+    cursor: default;
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+.closeModalAddUser:hover { background: #00d9ff; }
+.closeModalAddUser:active { background: #008cff; }
 .modalDialogGroup {
     position: fixed;
     font-family: Arial, Helvetica, sans-serif;
@@ -483,7 +632,7 @@ ul {
     border-style: none;
     border-color: green;
     width: 15%;
-    margin: 1%;
+    margin: 1.5%;
     height: inherit;
 }
 .userlist{
@@ -511,3 +660,83 @@ ul::-webkit-scrollbar {
     background-color: darkgrey;
     outline: 1px solid slategrey;
   }
+  
+.addlist{
+    width: 100%;
+    height: 110%;
+    position: absolute;
+    top:0%;
+    z-index: 1;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(17, 30, 44, 0.664);  
+    border-radius: 5px;
+    
+
+}
+.addlist div:hover{
+    cursor: pointer;
+    background-color: rgba(23, 39, 54, 0.852);
+}
+.addlist div:active{
+    background-color: rgba(27, 43, 58, 0.852);
+}
+.addlist div{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    padding:5px;
+    background-color: rgba(22, 34, 48, 0.852);
+    border-radius: 20px;
+    border-style: none;
+    color: rgb(92, 178, 253);
+    font-size: 1.8vh;
+}
+.arrow{
+    display: none;
+    color: rgba(255, 255, 255, 0.753);
+    opacity: 0;
+    height: 40%;
+}
+.chathead button{
+    display: none;
+}
+.settingsList{
+    max-width: 75%;
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    left:88%;  
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; 
+    border-radius: 5px;
+}
+.settingsList div{
+    border-style: solid;
+    border-width: 0 2px 0 0;
+    border-color:rgb(0, 22, 41) ;
+}
+.settingsList div:last-child{
+    border-style: none;
+}
+.settingsList div{
+    opacity: 0;
+    height: 100%;
+    background-color: rgba(22, 34, 48, 0.452);
+    color:rgb(92, 178, 253) ;
+    font-size: 1vh;
+    width: 20%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+}
+.settingsList div:hover{
+    background-color: rgba(26, 34, 48, 0.752);
+
+}
