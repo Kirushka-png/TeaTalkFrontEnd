@@ -48,6 +48,7 @@ class Chat extends Component{
               <div className='chatmain'>
                 <div className='roomspace'>
                   <div className='roomhead'>
+                    <div className='headcontent'>
                     <div className='imghere'>
                    <img id='picture' className="pic" src='https://prd-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/styles/full_width/public/thumbnails/image/placeholder-profile_3_5.png'>
                    </img>
@@ -58,6 +59,7 @@ class Chat extends Component{
                    </div>
                    
                   </div>
+                  </div>
                   <div className='chats'>
                     <ul className='rooms' id='rooms'>
                       
@@ -65,8 +67,10 @@ class Chat extends Component{
         
                   </div>
                   <div className="RoomFooter">
-                  
-                    <img src={Addusersvg} alt="adduser" width="70%" />
+                    <div className='guyssvg'>
+                    <img src={Addusersvg} alt="adduser" width="65%" />
+                    </div>
+                    
                   </div>
                 </div>
                 <div className='chatspace'>
